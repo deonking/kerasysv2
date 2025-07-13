@@ -37,7 +37,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <CartProvider>
-          <div className="min-h-screen flex flex-col">
+          <div className="min-h-screen flex flex-col main-container">
             <Header />
             <Navigation />
             <div className="flex-1">

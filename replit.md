@@ -103,5 +103,6 @@ Preferred communication style: Simple, everyday language.
 - **Complete Image Replacement (January 13, 2025)**: Eliminados todos os placeholders cinzas substituindo por imagens autênticas de produtos Kerasys do iHerb
 - **Responsive Image Optimization (January 13, 2025)**: Ajustadas todas as imagens para usar object-contain com padding, garantindo que produtos apareçam completos e proporcionais em todos os dispositivos (mobile, tablet, desktop)
 - **ElaUSA Image Integration (January 13, 2025)**: Integradas imagens específicas da ElaUSA para produtos Moisturizing Baobab Oil Condicionador e Kerasys Argan Oil Serum com URLs otimizadas
+- **Complete Mobile Responsiveness Overhaul (January 13, 2025)**: Revisão completa da responsividade mobile com campo de pesquisa funcional, menu dropdown otimizado, grids responsivos e prevenção de overflow horizontal - site agora se adapta perfeitamente a todos os tamanhos de tela
 
 The application follows a monorepo structure with shared TypeScript types and schemas between frontend and backend, ensuring type safety across the full stack.

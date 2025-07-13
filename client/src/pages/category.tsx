@@ -70,17 +70,17 @@ export default function Category() {
 
   if (isLoading) {
     return (
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <Skeleton className="h-10 w-64 mb-2" />
-          <Skeleton className="h-4 w-96" />
+      <main className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-6 sm:py-8">
+        <div className="mb-6 sm:mb-8">
+          <Skeleton className="h-8 sm:h-10 w-48 sm:w-64 mb-2" />
+          <Skeleton className="h-4 w-64 sm:w-96" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {Array(8).fill(0).map((_, i) => (
-            <Card key={i}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+          {Array(12).fill(0).map((_, i) => (
+            <Card key={i} className="w-full max-w-sm mx-auto">
               <CardContent className="p-0">
-                <Skeleton className="w-full h-64 rounded-t-lg" />
-                <div className="p-4 space-y-2">
+                <Skeleton className="w-full h-40 sm:h-48 rounded-t-lg" />
+                <div className="p-3 sm:p-4 space-y-2">
                   <Skeleton className="h-4 w-full" />
                   <Skeleton className="h-4 w-3/4" />
                   <Skeleton className="h-6 w-1/2" />
@@ -95,10 +95,10 @@ export default function Category() {
   }
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground mb-2">{categoryName}</h1>
-        <p className="text-muted-foreground">
+    <main className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-6 sm:py-8">
+      <div className="mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{categoryName}</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">
           {pagination?.totalProducts || 0} produtos encontrados
           {pagination && pagination.totalPages > 1 && (
             <span className="ml-2">
@@ -109,17 +109,17 @@ export default function Category() {
       </div>
 
       {products.length === 0 ? (
-        <div className="text-center py-16">
-          <div className="text-6xl mb-4">🔍</div>
-          <h2 className="text-2xl font-semibold text-foreground mb-2">
+        <div className="text-center py-12 sm:py-16">
+          <div className="text-4xl sm:text-6xl mb-4">🔍</div>
+          <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">
             Nenhum produto encontrado
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-sm sm:text-base text-muted-foreground">
             Não encontramos produtos nesta categoria no momento.
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -128,7 +128,7 @@ export default function Category() {
       
       {/* Pagination */}
       {pagination && pagination.totalPages > 1 && (
-        <div className="flex justify-center items-center mt-12 space-x-2">
+        <div className="flex justify-center items-center mt-8 sm:mt-12 space-x-2">
           <Button
             variant="outline"
             size="sm"
@@ -139,9 +139,11 @@ export default function Category() {
               setLocation(newUrl);
             }}
             disabled={!pagination.hasPreviousPage}
+            className="text-xs sm:text-sm"
           >
-            <ChevronLeft className="h-4 w-4 mr-1" />
-            Anterior
+            <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+            <span className="hidden sm:inline">Anterior</span>
+            <span className="sm:hidden">Ant</span>
           </Button>
           
           <div className="flex space-x-1">

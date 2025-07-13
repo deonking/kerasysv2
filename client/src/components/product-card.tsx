@@ -40,16 +40,16 @@ export function ProductCard({ product }: ProductCardProps) {
   const installmentPrice = (parseFloat(product.salePrice) / 12).toFixed(2);
 
   return (
-    <div className="group cursor-pointer bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+    <div className="group cursor-pointer bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow w-full max-w-sm mx-auto">
       <div className="relative">
         {product.discountPercentage > 0 && (
-          <div className="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 text-xs font-bold rounded z-10">
+          <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs font-bold rounded z-10">
             -{product.discountPercentage}%
           </div>
         )}
         <Link href={`/produto/${product.id}`}>
           {imageError ? (
-            <div className="w-full h-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+            <div className="w-full h-40 sm:h-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
               <div className="text-center p-4">
                 <div className="text-purple-600 font-bold text-lg mb-2">Kerasys</div>
                 <div className="text-gray-600 text-sm">{product.volume}</div>
@@ -60,7 +60,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <img
               src={`/api/image-proxy?url=${encodeURIComponent(product.imageUrl)}`}
               alt={product.name}
-              className="w-full h-48 object-contain bg-white p-2"
+              className="w-full h-40 sm:h-48 object-contain bg-white p-2"
               onError={() => setImageError(true)}
               loading="lazy"
             />
@@ -68,9 +68,9 @@ export function ProductCard({ product }: ProductCardProps) {
         </Link>
       </div>
       
-      <div className="p-3">
+      <div className="p-3 sm:p-4">
         <Link href={`/produto/${product.id}`}>
-          <h3 className="text-xs text-gray-700 mb-2 line-clamp-2 hover:text-black">
+          <h3 className="text-xs sm:text-sm text-gray-700 mb-2 line-clamp-2 hover:text-black leading-tight">
             {product.name}
           </h3>
         </Link>
@@ -81,13 +81,13 @@ export function ProductCard({ product }: ProductCardProps) {
               R${product.originalPrice}
             </div>
           )}
-          <div className="text-lg font-bold text-black">
+          <div className="text-lg sm:text-xl font-bold text-black">
             R${product.salePrice}
           </div>
         </div>
         
         <div className="text-xs text-gray-600 mb-1">
-          <span className="font-medium">A vista</span> <span className="text-green-600 font-bold">R${pixPrice}</span> <span className="text-gray-500">no Pix</span>
+          <span className="font-medium">À vista</span> <span className="text-green-600 font-bold">R${pixPrice}</span> <span className="text-gray-500">no Pix</span>
         </div>
         
         <div className="text-xs text-gray-600 mb-3">
